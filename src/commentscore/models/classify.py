@@ -1,5 +1,6 @@
 # src/classify.py
 import joblib
+from pathlib import Path
 
 
 import re
@@ -22,12 +23,12 @@ def preprocess(text):
     return ' '.join(tokens)
 
 
-# # Load the vectorizer and SGDClassifier model
-# vectorizer = joblib.load(r"C:\Users\natur\Desktop\Technologies\Projects\Ranking-YT-Tutorials\Github version\SDGClassifier\src\tfidf_vectorizer.pkl")
-# model = joblib.load(r"C:\Users\natur\Desktop\Technologies\Projects\Ranking-YT-Tutorials\Github version\SDGClassifier\src\SGDClassifier_model.pkl")
-# Load the vectorizer and SGDClassifier model
-vectorizer = joblib.load("src/tfidf_vectorizer.pkl")
-model = joblib.load("src/SGDClassifier_model.pkl")
+# Resolves to the project root (3 levels up from src/commentscore/models/classify.py)
+BASE_DIR = Path(__file__).resolve().parent.parent.parent.parent
+MODEL_DIR = BASE_DIR / "models"
+
+vectorizer = joblib.load(MODEL_DIR / "tfidf_vectorizer.pkl")
+model = joblib.load(MODEL_DIR / "SGDClassifier_model.pkl")
 
 def classify_comments(comments: list[str]) -> list[str]:
     """
