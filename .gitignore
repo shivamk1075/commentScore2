@@ -22,7 +22,6 @@ venv/
 models/
 Dataset/
 *.h5
-*.pkl
 *.joblib
 *.bin
 *.onnx
