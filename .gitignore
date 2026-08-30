@@ -16,7 +16,6 @@ wheels/
 venv/
 .env
 .env.*
-.streamlit/
 
 # Large model/data artifacts
 models/

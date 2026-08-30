@@ -1,0 +1,7 @@
+[theme]
+base = "light"
+primaryColor = "#3B82F6"
+backgroundColor = "#F0F9FF"      # Extremely light sky blue
+secondaryBackgroundColor = "#E0F2FE" # Soft ice blue for sidebar
+textColor = "#1E293B"            # Darker slate for contrast against blue
+font = "sans serif"
