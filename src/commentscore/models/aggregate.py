@@ -1,26 +1,15 @@
-# src/aggregate.py
-
 import pandas as pd
 from typing import List
 
-def aggregate_video_sentiment(comments: List[str],
-                              labels: List[str]) -> str:
-    """
-    Given a list of cleaned comments and their corresponding
-    sentiment labels, return a video‐level label:
-    'Useful', 'Partially Useful', or 'Not Useful'.
-    """
-    df = pd.DataFrame({
-        "comment": comments,
-        "sentiment": labels
-    })
-    # Compute normalized counts
+def aggregate_video_sentiment(comments: List[str], labels: List[str]) -> str:
+    df = pd.DataFrame({"comment": comments, "sentiment": labels})
     prop = df.sentiment.value_counts(normalize=True)
     
-    if prop.get("POSITIVE", 0) > 1.25*prop.get("NEGATIVE", 0):
+    if prop.get("POSITIVE", 0) > 1.25 * prop.get("NEGATIVE", 0):
         return "Useful"
-    # if prop.get("NEGATIVE", 0) > 0.5:
+    if prop.get("NEGATIVE", 0) > 0.5:
         return "Not Useful"
+        
     return "Partially Useful"
 
 if __name__ == "__main__":

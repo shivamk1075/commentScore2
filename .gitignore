@@ -1,11 +1,31 @@
 # Python-generated files
 __pycache__/
-*.py[oc]
+*.py[cod]
+*.pyo
+*.pyd
 build/
 dist/
 wheels/
-*.egg-info
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
 
-# Virtual environments
-.venv
+# Local environment and secrets
+.venv/
+venv/
 .env
+.env.*
+.streamlit/
+
+# Large model/data artifacts
+models/
+Dataset/
+*.h5
+*.pkl
+*.joblib
+*.bin
+*.onnx
+*.pt
+*.ckpt
+*.safetensors
